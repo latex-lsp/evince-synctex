@@ -177,7 +177,7 @@ def startEvince(line, pdf_file, editor_command):
     try:
         EvinceWindowProxy.instance = EvinceWindowProxy(
             pdf_uri, editor_command, logger)
-        GLib.idle_add(poll_viewer_process)
+        GLib.timeout_add(1000,poll_viewer_process)
         GLib.MainLoop().run()
     except KeyboardInterrupt:
         pass
